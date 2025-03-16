@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a, ul{
+    text-decoration: none;
+}
+body{
+    background-color: #F8F8F8;
+    height: 100vh;
+}
+
+/*THE HEADER*/
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 80px;
+    z-index: 99;
+    animation: to-bottom 1s ease forwards;
+}
+header nav a{
+    font-size: 24px;
+    color: #1E1E1E;
+    position: relative;
+    margin-left: 60px;
+}
+header a h1{
+   display: flex;
+   align-items: center;
+}
+header nav a::before{
+   content: "";
+   position: absolute;
+   bottom: -5px;
+   left: 0;
+   background-color: #1E1E1E;
+   width: 100%;
+   height: 2.5px;
+   transform: scale(0);
+   transition: .3s ease-in-out;
+   transform-origin: left;
+}
+header nav a:hover::before{
+    transform: scale(1);
+ }
+
+header h1{
+    color: #008080;
+}
+/*==============================
+             THE HERO SECTION
+===============================*/
+.hero{
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 20px;
+}
+
+.hero-content{
+    width: 50%;
+    margin-left: 30px;
+    color: #1E1E1E;
+
+}
+.hero-content h1{
+    font-size: 60px;
+    animation: to-right 1s ease forwards;
+    opacity: 0;
+
+}
+
+span{
+    color: #008080;
+}
+.hero-content p{
+    margin: 35px 0;
+    font-size: 20px;
+    color: hsl(0, 0%, 43%);
+    opacity: 0;
+    animation: to-right 1s ease forwards 0.2s;
+
+}
+.btn{
+    border: 1px solid #008080;
+    background: transparent ;
+    color: white;
+    position: relative;
+    padding: 12px 30px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .3s;
+    overflow: hidden;
+    opacity: 0;
+    animation: to-right 1s ease forwards 0.4s;
+
+}
+
+.btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #008080;
+    z-index: -1;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: .5s;
+}
+.btn:hover::before{
+    transform: scaleX(0);
+}
+.btn:hover{
+    color: #1E1E1E;
+}
+/*THE image*/
+.img-container{
+    background-image: url(./images/Fitness\ tracker-cuate.png);
+    background-repeat: no-repeat;  
+    background-size: contain;
+    background-position: center;
+    width: 800px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 600px;
+    animation: changeHeroImage 7s infinite ease-in-out, to-left 1s ease forwards ;
+}
+#toggle-icon{
+    display: none;
+}
+
+/*ANIMATION TO TARGET THE HEADER*/
+@keyframes to-bottom {
+    0%{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/*ANIMATION TO TARGET THE CONTENT*/
+
+@keyframes to-right {
+    0%{
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/*ANIMATION TO TARGET THE IMAGE */
+@keyframes to-left {
+    0%{
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/*ANIMATION TO TARGET THE BACKGROUND OF THE IMAGE CONTAINER*/
+@keyframes changeHeroImage  {
+    0%{
+        background-image: url("./images/Indoor\ bike-cuate.png");
+    }
+    45%{
+        background-image: url("./images/Running-bro.png");
+    }
+    100%{
+        background-image: url("./images/Sport\ family-amico.png");
+    }
+}
+
+/*======================MEDIA QUERY=======================*/
+@media (max-width:1410px) {
+
+    .hero-content h1{
+        font-size: 50px;
+    }
+
+    .hero-content p{
+        font-size: 15px;
+    }
+    .btn{
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+    
+.img-container{
+    width: 600px;
+}
+}
+
+
+@media (max-width:1200px) {
+
+    .hero-content h1{
+        font-size: 35px;
+    }
+
+    .hero-content p{
+        font-size: 15px;
+        width: 90%;
+
+    }
+    .btn{
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+    
+    /*THE image*/
+    .img-container{
+        width: 50%;
+        bottom: 50px;
+    }
+    #nav-links{
+        display: none;
+    }
+    #toggle-icon{
+        display: inline-block;
+        font-size: 30px;
+        cursor: pointer;
+    }
+}
+
+@media (max-width:780px) {
+    header{
+        padding: 30px 20px;
+    }
+    .hero{
+        flex-direction: column-reverse;
+        justify-content: space-around;
+
+    }
+    .hero-content{
+        width: 50%;
+        margin-left: initial;
+        color: #1E1E1E;
+        
+    
+    }
+    .img-container{
+        background-image: url(./images/Fitness\ tracker-cuate.png);
+        background-repeat: no-repeat;  
+        background-size: contain;
+        background-position: center;
+        position: relative;
+        width: 90%;
+        height: 400px;
+        margin-top: 150px;
+    }
+    .hero-content{
+        width: 90%;
+        color: #1E1E1E;
+        margin-bottom: 50px;
+    }
+    .hero-content h1{
+        font-size: 25px;
+    }
+    .btn{
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+}
