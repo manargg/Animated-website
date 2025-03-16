@@ -246,19 +246,11 @@ span{
 
 @media (max-width:780px) {
     header{
-        padding: 30px 20px;
+        padding: 20px;
     }
     .hero{
         flex-direction: column-reverse;
         justify-content: space-around;
-
-    }
-    .hero-content{
-        width: 50%;
-        margin-left: initial;
-        color: #1E1E1E;
-        
-    
     }
     .img-container{
         background-image: url(./images/Fitness\ tracker-cuate.png);
@@ -266,7 +258,7 @@ span{
         background-size: contain;
         background-position: center;
         position: relative;
-        width: 90%;
+        max-width: 90%;
         height: 400px;
         margin-top: 150px;
     }
